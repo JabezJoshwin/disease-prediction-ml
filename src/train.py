@@ -14,7 +14,7 @@ from imblearn.over_sampling import RandomOverSampler
 import pickle  # For saving models
 
 # Load dataset
-data = pd.read_csv('../data/improved_disease_dataset.csv')
+data = pd.read_csv('./data/improved_disease_dataset.csv')
 
 encoder = LabelEncoder()
 data["disease"] = encoder.fit_transform(data["disease"])
@@ -36,15 +36,15 @@ if len(y_resampled.shape) > 1:
 # Train and save models
 rf_model = RandomForestClassifier(random_state=42)
 rf_model.fit(X_resampled, y_resampled)
-pickle.dump(rf_model, open("../models/rf_model.pkl", "wb"))
+pickle.dump(rf_model, open("./models/rf_model.pkl", "wb"))
 
 nb_model = GaussianNB()
 nb_model.fit(X_resampled, y_resampled)
-pickle.dump(nb_model, open("../models/nb_model.pkl", "wb"))
+pickle.dump(nb_model, open("./models/nb_model.pkl", "wb"))
 
 svm_model = SVC()
 svm_model.fit(X_resampled, y_resampled)
-pickle.dump(svm_model, open("../models/svm_model.pkl", "wb"))
+pickle.dump(svm_model, open("./models/svm_model.pkl", "wb"))
 
 # Save encoder
-pickle.dump(encoder, open("../models/encoder.pkl", "wb"))
+pickle.dump(encoder, open("./models/encoder.pkl", "wb"))
