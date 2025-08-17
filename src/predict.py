@@ -2,12 +2,12 @@ import pandas as pd
 import pickle
 from statistics import mode
 
-rf_model = pickle.load(open("../models/rf_model.pkl", "rb"))
-nb_model = pickle.load(open("../models/nb_model.pkl", "rb"))
-svm_model = pickle.load(open("../models/svm_model.pkl", "rb"))
-encoder = pickle.load(open("../models/encoder.pkl", "rb"))
+rf_model = pickle.load(open("./models/rf_model.pkl", "rb"))
+nb_model = pickle.load(open("./models/nb_model.pkl", "rb"))
+svm_model = pickle.load(open("./models/svm_model.pkl", "rb"))
+encoder = pickle.load(open("./models/encoder.pkl", "rb"))
 
-data = pd.read_csv('../data/improved_disease_dataset.csv')
+data = pd.read_csv('./data/improved_disease_dataset.csv')
 symptoms = data.columns.values[:-1]
 symptom_index = {symptom: idx for idx, symptom in enumerate(symptoms)}
 
